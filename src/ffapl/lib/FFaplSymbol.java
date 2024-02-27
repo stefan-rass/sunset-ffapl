@@ -236,7 +236,11 @@ public class FFaplSymbol implements ISymbol {
 				break;
 				
 			case ISymbol.CONSTANT:
-				    result = symbol.getID().equals(this.getID());
+				    if(symbol.getKind() == ISymbol.VARIABLE ||
+				    		symbol.getKind() == ISymbol.PARAMETER ||
+				    		symbol.getKind() == ISymbol.CONSTANT){
+				    	result = symbol.getID().equals(this.getID());
+				    }
 				break;
 			case ISymbol.PROGRAM:
 				    result = symbol.getID().equals(this.getID());
